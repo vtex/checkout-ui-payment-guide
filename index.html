@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html class="js opacity csstransforms csstransitions" lang="pt-BR">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" name="SKYPE_TOOLBAR">
+
+    <title data-i18n="title">Finalizar compra</title>
+    <link href="http://io.vtex.com.br/front-libs/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://io.vtex.com.br/front-libs/bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://io.vtex.com.br/front-libs/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://io.vtex.com.br/checkout-ui/3.49.0/style/style.css" rel="stylesheet">
+    <link href="payment.less" type="text/css" rel="stylesheet/less">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/i18next/1.6.3/i18next-1.6.3.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js"></script>
+
+    <script type="text/javascript">
+        $(function(){
+            i18n.init({
+                detectLngFromPath: 0,
+                lng: "en-US",
+                resGetPath: "locale/__lng__.json",
+                fallbackLng: false
+            });
+            $("#its-a-fake-id").load("payment.html", function() {
+                $('body').i18n();
+            });
+        });
+
+        function setLng(lng) {
+            i18n.setLng(lng, function() {
+                $('body').i18n();
+            });
+        }
+
+    </script>
+</head>
+
+<body class="www-store-com-br body-order-form">
+    <div style="background:#fff;position:fixed;right:0;top:0;padding:5px 20px 5px 10px;z-index:9999;">
+        <a href="javascript:void(0);" onClick="setLng('en-US');">en-US</a> | 
+        <a href="javascript:void(0);" onClick="setLng('pt-BR');">pt-BR</a> | 
+        <a href="javascript:void(0);" onClick="setLng('es');">es</a>
+    </div>
+    <div class="container container-main container-order-form">
+        <h1 class="hide" data-bind="fadeVisible: inOrderForm" data-i18n="title" id="orderform-title" style="display: block;">Finalizar compra</h1>
+
+        <small class="gift-list-alert alert" data-bind="visible: isUsingGiftRegistry" style="display:none;"><i class="icon-gift icon-large"></i> <span class="gift-list-alert-text" data-i18n="giftListAlert">Você está comprando para a lista</span> <b class="gift-list-alert-name" data-bind="text: giftRegistryDescription"></b>. <a data-bind="click: removeGiftRegistry" data-i18n="giftListDismiss" href="javascript:void(0);">Não comprar para esta lista</a>.</small>
+
+        <div class="checkout-container row-fluid orderform-active">
+
+            <div class="row-fluid orderform-template span12 active">
+                <div class="orderform-template-holder span8">
+                    <div class="row-fluid">
+                        <div class="span6 client-profile-data" data-bind="template: {name: 'orderForm-clientProfileData-template', afterRender: afterRender}" id="client-profile-data">
+
+                            <div class="step accordion-group client-profile-data filled" data-bind="css: {active: active, filled: visitedAndNotActive}">
+                                <div class="accordion-heading">
+                                    <span class="accordion-toggle collapsed" data-bind="css: {'accordion-toggle-active': active}"><i class="icon-user"></i> <span data-i18n="clientProfileData.identification">Dados pessoais</span>  <a class="link-box-edit btn btn-small icon-edit" data-bind="visible: visitedAndNotActive" data-i18n="[title]global.edit" href="#/profile" id="edit-profile-data" style="font-style: italic" tabindex="-1" title="alterar"></a>  </span>
+                                </div>
+
+                                <div class="accordion-body collapse in">
+                                    <div class="accordion-inner">
+                                        <div class="box-step">
+                                            
+
+                                            <div class="form-step box-info" data-bind="fadeVisible: visitedAndNotActive" style="display: block;">
+                                                <p class="client-profile-email"><span class="email" data-bind="text: email">shipping3.5181627608835697@mailinator.com</span> <span class="link-logout-container" data-bind="visible: isUsingExistingAccount" style="display: none;">- <a class="link-logout" data-bind=" attr: { 'href': anonymousURL }" data-i18n="clientProfileData.isNotMe" id="is-not-me">Não é você? Sair</a></span></p>
+
+                                                <p class="client-profile-summary"><span class="name-label" data-bind="visible: checkout.loggedIn() || (!checkout.loggedIn() &amp;&amp; !checkout.canEditData())" data-i18n="clientProfileData.name_" style="display: none;">Nome:</span> <span class="name" data-bind="text: firstName() + ' ' + lastName()">auto auto</span> <br>
+                                                <span class="tel-label" data-bind="visible: checkout.loggedIn() || (!checkout.loggedIn() &amp;&amp; !checkout.canEditData())" data-i18n="clientProfileData.phone_" style="display: none;">Telefone:</span> <span class="tel" data-bind="text: cleanPhone">(22) 2222-2222</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="span6 pull-right shipping-data" id="shipping-data">
+                            <div class="step accordion-group shipping-data">
+                                
+
+                                <div class="accordion-heading">
+                                    <span class="accordion-toggle collapsed accordion-shipping-title"><i class="icon-home"></i> <span data-i18n="shipping.title">Entrega</span><a class="link-box-edit btn btn-small hide icon-edit" data-i18n="[title]global.edit" href="#/shipping" id="edit-shipping-data" style="display: inline; font-style: italic" tabindex="-1" title="alterar"></a></span>
+                                </div>
+
+                                <div class="accordion-inner">
+                                    
+
+                                    <div class="box-step box-info shipping-summary-placeholder">
+                                        <p class="address"><span class="street">Rua Cruz Lima</span>,&nbsp;<span class="number">99</span>&nbsp;- <span class="neighborhood">Flamengo</span><br>
+                                        <span class="city">Rio de Janeiro</span> -&nbsp;<span class="state">RJ</span>&nbsp;- <span class="postal-code">22230-010</span>&nbsp;<span class="country" data-i18n="countries.BRA">Brasil</span></p>
+
+                                        <div class="shipping-options just-one">
+                                            <p class="shipping-selected-sla"><span class="text" data-i18n="shipping.shippingSummary.shipping">Entrega:</span> <span class="sla">Transportadora</span> <span>-</span> <span class="estimate">Até 5 dias úteis</span> <span>-</span> <span class="sla-value">R$ 40,39</span></p>
+                                        </div><a class="link-change-shipping" data-i18n="shipping.shippingSummary.chooseOtherShippingOption" href="#/shipping" id="change-other-shipping-option">Alterar opções de entrega</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pull-right payment-data span12" data-bind="template: {name: 'orderForm-paymentData-template', afterRender: afterRender}, css: { 'span6': !active(), 'span12': active }" id="payment-data">
+                            <div class="step accordion-group active" data-bind="css: {active: active, filled: visitedAndNotActive}">
+                                <div class="accordion-heading">
+                                    <span class="accordion-toggle collapsed accordion-toggle-active" data-bind="css: {'accordion-toggle-active': active}"><i class="icon-credit-card"></i> <span data-i18n="paymentData.payment">Pagamento</span> <a class="link-box-edit btn btn-small icon-edit" data-bind="visible: visitedAndNotActive" data-i18n="[title]global.edit" href="#/payment" style="display: none; font-style: italic" tabindex="-1" title="alterar"></a></span>
+                                </div>
+
+                                <div class="accordion-body collapse in payment-body">
+                                    <div class="accordion-inner">
+                                        <div class="box-step">
+
+                                            <div class="box-step-content" data-bind="fadeVisible: active() || visited()">
+                                                <form action="" class="form-step box-new row-fluid" data-bind="fadeVisible: active(), submit: submit" data-event="finishPayment">
+                                                    
+
+                                                    <p class="link link-gift-card" data-bind="fadeVisible: !totalIsFree() &amp;&amp; !showGiftCard() &amp;&amp; !totalIsPaidByGiftCards()"><a class="link-payment-discounts-cod" data-bind="click: showGiftCard.bind($data, true)" data-i18n="paymentData.paymentGroup.giftCard.useGiftCard" href="" id="show-gift-card-group">Adicionar vale-presente</a></p>
+
+                                                    <fieldset class="payment-group" data-bind="visible: showPaymentOptions">
+                                                        <h3 class="hide" data-i18n="paymentData.paymentMethod">Forma de pagamento</h3>
+
+                                                        <div class="payment-group-list required button-list inline-list hide" data-bind="foreach: paymentGroupArray">
+                                                            
+
+                                                            <p class="radio first" data-bind="css: {first: $parent.paymentGroupArray()[0] === $data, last: $parent.paymentGroupArray()[$parent.paymentGroupArray().length - 1] === $data, checked: $parent.selectedPaymentGroupId() == id}"><input data-bind="value: id, attr:{id:'paymentGroup' + id}, checked: $parent.selectedPaymentGroupId" id="paymentGroup-1437679962090q4vti3w8le2n8kt9" name="paymentGroup" type="radio" value="-1437679962090q4vti3w8le2n8kt9"> <label class="btn" data-bind="text: localizedLabel, attr:{'for':'paymentGroup' + id, htmlFor:'paymentGroup' + id}" for="paymentGroup-1437679962090q4vti3w8le2n8kt9">Cartão de crédito</label></p>
+
+                                                            <p class="radio" data-bind="css: {first: $parent.paymentGroupArray()[0] === $data, last: $parent.paymentGroupArray()[$parent.paymentGroupArray().length - 1] === $data, checked: $parent.selectedPaymentGroupId() == id}"><input data-bind="value: id, attr:{id:'paymentGroup' + id}, checked: $parent.selectedPaymentGroupId" id="paymentGroup-1437679962116n30gzu82ggki6bt9" name="paymentGroup" type="radio" value="-1437679962116n30gzu82ggki6bt9"> <label class="btn" data-bind="text: localizedLabel, attr:{'for':'paymentGroup' + id, htmlFor:'paymentGroup' + id}" for="paymentGroup-1437679962116n30gzu82ggki6bt9">Boleto bancário</label></p>
+
+                                                            <p class="radio" data-bind="css: {first: $parent.paymentGroupArray()[0] === $data, last: $parent.paymentGroupArray()[$parent.paymentGroupArray().length - 1] === $data, checked: $parent.selectedPaymentGroupId() == id}"><input data-bind="value: id, attr:{id:'paymentGroup' + id}, checked: $parent.selectedPaymentGroupId" id="paymentGroup-14376799621164f9dcro5ii6yldi" name="paymentGroup" type="radio" value="-14376799621164f9dcro5ii6yldi"> <label class="btn" data-bind="text: localizedLabel, attr:{'for':'paymentGroup' + id, htmlFor:'paymentGroup' + id}" for="paymentGroup-14376799621164f9dcro5ii6yldi">PayPal</label></p>
+
+                                                            <p class="radio last checked" data-bind="css: {first: $parent.paymentGroupArray()[0] === $data, last: $parent.paymentGroupArray()[$parent.paymentGroupArray().length - 1] === $data, checked: $parent.selectedPaymentGroupId() == id}"><input data-bind="value: id, attr:{id:'paymentGroup' + id}, checked: $parent.selectedPaymentGroupId" id="paymentGroup-1437679962118rm0ebbgtwn9rizfr" name="paymentGroup" type="radio" value="-1437679962118rm0ebbgtwn9rizfr"> <label class="btn" data-bind="text: localizedLabel, attr:{'for':'paymentGroup' + id, htmlFor:'paymentGroup' + id}" for="paymentGroup-1437679962118rm0ebbgtwn9rizfr">MercadoPago</label></p>
+                                                        </div>
+
+                                                        <div class="required payment-group-list-btn" data-bind="foreach: paymentGroupArray">
+                                                            <a class="payment-group-item" data-bind="click: $parent.selectPaymentGroup, attr:{ 'id':'payment-group-' + groupName(), 'class': className + ' payment-group-item' }, css: { active: $parent.selectedPaymentGroupId() == id }" href="javascript:void(0);" id="payment-group-creditCardPaymentGroup"><span class="payment-group-item-text" data-bind="text: localizedLabel">Cartão de crédito</span></a>   <a class="payment-group-item" data-bind="click: $parent.selectPaymentGroup, attr:{ 'id':'payment-group-' + groupName(), 'class': className + ' payment-group-item' }, css: { active: $parent.selectedPaymentGroupId() == id }" href="javascript:void(0);" id="payment-group-bankInvoicePaymentGroup"><span class="payment-group-item-text" data-bind="text: localizedLabel">Boleto bancário</span></a>      <a class="payment-group-item active" data-bind="click: $parent.selectPaymentGroup, attr:{ 'id':'payment-group-' + groupName(), 'class': className + ' payment-group-item' }, css: { active: $parent.selectedPaymentGroupId() == id }" href="javascript:void(0);" id="payment-group-NewPayment"><span class="payment-group-item-text" data-bind="text: localizedLabel">Forma de pagamento</span></a> 
+                                                        </div>
+                                                    </fieldset>
+
+                                                    <div class="steps-view" data-bind="visible: showPaymentOptions">
+                                                        
+
+                                                        <div id="its-a-fake-id"></div>
+
+                                                        <p class="button submit payment-submit-hide"><button class="submit btn btn-success btn-large" data-bind="click: submit, disable: checkout.disablePaymentButton" type="submit"><i class="icon-lock"></i> <span data-i18n="paymentData.confirm">Finalizar compra</span></button></p>
+                                                    </div>
+                                                </form>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <p class="link back hide"><a href="#/shipping"><span data-i18n="global.backTo">Voltar para</span> <span data-i18n="shippingData.shippingAddressTitle">Entrega</span></a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cart-template mini-cart span4">
+                    <div class="cart-fixed cart-fixed-transition affix-top" style="height: 326px;">
+                        <h2 data-i18n="totalizers.summary">Resumo do pedido</h2>
+
+                        <div class="summary-cart-template-holder" data-bind="fadeVisible: window.router.inOrderForm, template: { name: 'orderForm-summary-cart-template', afterRender: vtex.i18n.translateHtml }" style="display: block; height: auto;">
+                            <div class="cart">
+                                <ul class="cart-items unstyled clearfix">
+                                    <li class="hproduct item muted" data-bind="attr: {'data-sku': id}" data-sku="2485">
+                                        <a class="url" data-bind="attr: {'href': ('http://' + location.host + detailUrl())}" href="#"><img alt="ex 1" class="photo" data-bind="attr: {'src': imageUrl, 'alt': name, 'id': 'hproduct-item-' + id()}" height="45" id="hproduct-item-2485" src="" width="45" height="45"></a> <span class="fn product-name" data-bind="text: name, attr: {'href': ('http://' + location.host + detailUrl())}">Produto exemplo 1</span> <span class="quantity badge" data-bind="text: quantity">1</span>
+
+                                        <div class="description">
+                                            <span class="shipping-date pull-left" data-bind="text: estimateLabel, css: { 'empty': estimateLabel() == 'a calcular' }">5 dias úteis</span> <strong class="item-price pull-right hide" data-bind="text: priceLabel">R$ 119,99</strong> <strong class="price pull-right" data-bind="text: sellingPriceLabel">R$ 119,99</strong>
+                                        </div>
+                                    </li>
+
+                                    <li class="hproduct item muted gift" data-bind="attr: {'data-sku': id}" data-sku="8823">
+                                        <a class="url" data-bind="attr: {'href': ('http://' + location.host + detailUrl())}" href="#"><img alt="ex 2" class="photo" data-bind="attr: {'src': imageUrl, 'alt': name, 'id': 'hproduct-item-' + id()}" height="45" id="hproduct-item-2485" src="" width="45" height="45"></a> <span class="fn product-name" data-bind="text: name, attr: {'href': ('http://' + location.host + detailUrl())}">Brinde</span> <span class="quantity badge" data-bind="text: quantity">1</span>
+
+                                        <div class="description">
+                                            <span class="shipping-date pull-left hide">2 dias úteis</span> <strong class="price pull-right" data-i18n="global.free"></strong>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <p class="link link-cart pull-right"><small><a data-event="orderformToCart" data-i18n="global.backToCart" href="#/cart" id="orderform-minicart-to-cart" target="_self">Voltar para o carrinho</a></small></p>
+
+                        <div class="summary-template-holder" data-bind="template: 'summary-template'">
+                            <div class="row-fluid summary" data-bind="fadeVisible: window.cart.hasItems() &amp;&amp; !loading()" style="display: block;">
+                                <div class="span5 totalizers summary-totalizers cart-totalizers pull-right">
+                                    <div class="accordion-group" data-bind="fadeVisible: window.cart.hasItems() &amp;&amp; !loading()" style="display: block;">
+                                        <div class="accordion-heading">
+                                            <span class="accordion-toggle collapsed" data-i18n="totalizers.summary">Resumo do pedido</span>
+                                        </div>
+
+                                        <div class="accordion-body collapsedapse in">
+                                            <div class="accordion-inner">
+                                                <table class="table">
+                                                    <tbody class="totalizers-list" data-bind="foreach: { data: totalizers }">
+                                                        <tr class="Items" data-bind="visible: visible, attr: { 'class': id }">
+                                                            
+
+                                                            <td class="info" data-bind="attr: {'data-i18n': 'totalizers.' + id()}" data-i18n="totalizers.Items">Subtotal</td>
+
+                                                            <td class="monetary" data-bind="text: valueLabel">R$ 119,99</td>
+                                                        </tr>
+
+                                                        <tr class="Shipping" data-bind="visible: visible, attr: { 'class': id }">
+                                                            
+
+                                                            <td class="info" data-bind="visible: $parent.isShippingKnown()">
+                                                                <span class="postal-code-for-sla"><span class="shipping-name" data-bind="attr: {'data-i18n': 'totalizers.' + id()}" data-i18n="totalizers.Shipping">Entrega</span> <span class="shipping-name-to" data-i18n="global.to">para</span> <span class="postal-code-value" data-bind="html: $parent.maskedPostalCode">22230-010</span> <a class="cart-reset-postal-code icon-remove-sign" data-bind="visible : window.checkout.canEditData, click: $parent.resetShipping" data-i18n="[title]global.edit" href="javascript:void(0);" id="cart-reset-postal-code" style="font-style: italic" title="alterar"></a></span>    
+
+                                                            </td>
+
+                                                            <td class="monetary" data-bind="text: valueLabel, visible: $parent.isShippingKnown()">R$ 40,39</td>
+
+                                                            <td class="empty" data-bind="visible: $parent.isShippingKnown()"></td>
+                                                        </tr>
+                                                    </tbody>
+
+                                                    <tbody class="shipping-reset" data-bind="visible: isShippingKnown() &amp;&amp; !window.checkout.isNotUsingPostalCode() &amp;&amp; window.cart.items().length == window.cart.unavailableItems().length" style="display: none;">
+                                                        <tr>
+                                                            <td class="info"><span class="postal-code-for-sla"><span class="shipping-name" data-bind="attr: {'data-i18n': 'totalizers.Shipping'}" data-i18n="totalizers.Shipping">Entrega</span> <span class="shipping-name-to" data-i18n="global.to">para</span> <span class="postal-code-value" data-bind="html: window.summary.maskedPostalCode">22230-010</span> <a class="cart-reset-postal-code icon-remove-sign" data-bind="visible : window.checkout.canEditData, click: summary.resetShipping" data-i18n="[title]global.edit" href="javascript:void(0);" id="cart-reset-postal-code" style="font-style: italic" title="alterar"></a><br>
+                                                            <a class="cart-reset-postal-code" data-bind="visible : window.checkout.canEditData, click: window.summary.resetShipping" data-i18n="cart.resetShipping" href="javascript:void(0);" id="cart-reset-postal-code">Informar outro CEP</a></span></td>
+
+                                                            <td class="space"></td>
+
+                                                            <td class="monetary shipping-unavailable" data-i18n="global.unavailable">indisponível</td>
+                                                        </tr>
+                                                    </tbody>
+
+                                                    <tfoot>
+                                                        <tr class="" data-bind="css: {'muted': !hasTotal()}">
+                                                            <td class="info" data-i18n="global.total">Total</td>
+
+                                                            <td class="space"></td>
+
+                                                            <td class="monetary" data-bind="text: totalLabel">R$ 160,38</td>
+
+                                                            <td class="empty"></td>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="payment-confirmation-wrap" style="display: block;">
+                            <p class="payment-submit-wrap"><button class="submit btn btn-success btn-large btn-block" data-bind="click: submit, disable: window.checkout.disablePaymentButton" id="payment-data-submit" tabindex="200"><i class="icon-lock" data-bind="visible: !window.checkout.disablePaymentButton()" style=""></i> <i class="icon-spinner icon-spin" data-bind="visible: window.checkout.disablePaymentButton()" style="display: none;"></i> <span data-i18n="paymentData.confirm">Finalizar compra</span></button></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
