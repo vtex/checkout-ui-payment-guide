@@ -251,7 +251,9 @@
                 fallbackLng: false
             });
             $("#its-a-fake-id").load("payment/payment.html", function() {
-                $('body').i18n();
+                setTimeout(function() {
+                    $('body').i18n();
+                }, 200);
             });
         });
 
