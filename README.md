@@ -32,7 +32,11 @@ Para começar a escrever seu código, você deve fazer um _fork_ do repositório
 ### Comunicação
 A comunicação sobre o meio de pagamento é iniciada ao selecioná-la. É o momento em que o consumidor manifesta algum interesse em utilizá-la. Dessa maneira, é importante comunicar, resumidamente e de forma clara, como funciona e quais são as vantagens de se utilizar este meio. Dados de contato, sendo telefone ou e-mail, também podem ajudar o consumidor a resolver algum problema ou dúvida no momento da compra.
 
-Os textos devem ser produzidos em três idiomas: português, inglês e espanhol. As imagens também podem ser alteradas para atender melhor cada idioma.
+Os textos devem ser produzidos em três idiomas: português, inglês e espanhol. Você pode utilizar o seletor de idiomas localizado no canto superior direito para validar os textos na _UI_.
+
+![Seletor de idioma](payment/img/locale.png)
+
+As imagens utilizadas na _UI_ também podem ser alteradas para atender melhor cada idioma.
 
 ### Design e elementos de _UI_
 
