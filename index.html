@@ -12,7 +12,7 @@
     <link href="http://io.vtex.com.br/front-libs/bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="http://io.vtex.com.br/front-libs/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
     <link href="http://io.vtex.com.br/checkout-ui/3.49.0/style/style.css" rel="stylesheet">
-    <link href="payment.less" type="text/css" rel="stylesheet/less">
+    <link href="payment/payment.less" type="text/css" rel="stylesheet/less">
 
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/i18next/1.6.3/i18next-1.6.3.min.js"></script>
@@ -23,10 +23,10 @@
             i18n.init({
                 detectLngFromPath: 0,
                 lng: "en-US",
-                resGetPath: "locale/__lng__.json",
+                resGetPath: "payment/locale/__lng__.json",
                 fallbackLng: false
             });
-            $("#its-a-fake-id").load("payment.html", function() {
+            $("#its-a-fake-id").load("payment/payment.html", function() {
                 $('body').i18n();
             });
         });

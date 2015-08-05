@@ -3,20 +3,22 @@
 ## Introdução
 Este é um documento destinado aos integradores de novos meios de pagamento ao _Smart Checkout_ da VTEX. Além da integração _back-end_ com o _PCI Gateway_, é essencial que os integradores forneçam uma interface com o usuário que contenha a identidade visual do meio de pagamento a ser apresentada.
 
-Oferecemos o código de um dos nossos meios de pagamentos já integrados para servir de base na contrução de novos meios.
+Oferecemos o código de um dos nossos meios de pagamentos já integrados para servir de base na contrução de novos meios. A _UI_ pode ser vista [neste endereço](http://vtex.github.io/checkout-ui-payment-guide/).
 
 ## Como utilizar este repositório
 
 ### Estrutura
 
 * `index.html`: HTML do checkout (não deve ser alterado)
-* `payment.html`: HTML de exemplo do módulo de pagamento
-* `payment.less`: estilo de exemplo do módulo de pagamento
-* `img`: pasta das imagens utilizadas no pagamento
-* `locale`: pasta dos arquivos de tradução
-    * `pt-BR.json`: português do Brasil
-    * `en-US.json`: inglês dos EUA
-    * `es.json`: espanhol LATAM
+* `guide`: pasta dos arquivos do guia
+* `payment`: pasta dos arquivos do pagamento
+    * `payment.html`: HTML de exemplo do pagamento
+    * `payment.less`: estilo de exemplo do pagamento
+    * `img`: pasta das imagens do pagamento
+    * `locale`: pasta dos arquivos de tradução
+        * `pt-BR.json`: português do Brasil
+        * `en-US.json`: inglês dos EUA
+        * `es.json`: espanhol LATAM
 
 ### Desenvolvimento
 
