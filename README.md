@@ -34,7 +34,7 @@ A comunicação sobre o meio de pagamento é iniciada ao selecioná-la. É o mom
 
 Os textos devem ser produzidos em três idiomas: português, inglês e espanhol. Você pode utilizar o seletor de idiomas localizado no canto superior direito para validar os textos na _UI_.
 
-![Seletor de idioma](payment/img/locale.png)
+![Seletor de idioma](/payment/img/locale.png)
 
 As imagens utilizadas na _UI_ também podem ser alteradas para atender melhor cada idioma.
 
